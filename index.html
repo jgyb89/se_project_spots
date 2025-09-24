@@ -14,9 +14,35 @@
   </head>
   <body>
     <div class="page">
-      <header class="header"><h1 class="title">Title</h1></header>
+      <header class="header">
+        <img class="header__logo" src="/images/Logo.svg" />
+      </header>
       <main class="content">
-        <section class="profile"></section>
+        <section class="profile">
+          <div class="profile__user-column">
+            <img class="profile__user-image" src="/images/avatar.jpg" />
+
+            <span class="profile__user-details">
+              <span class="proflie__user-title">
+                <h1 class="profile__user-name">Bessie Coleman</h1>
+                <p class="profile__user-subtitle">Civil Aviator</p>
+              </span>
+
+              <span class="profile__edit-profile">
+                <a href="#" class="profle__edit-profile_button">
+                  <img src="/images/edit-icon.svg" />Edit profile
+                </a>
+              </span>
+            </span>
+          </div>
+
+          <div class="profile__new-post">
+            <button class="profile__new-post_button">
+              <img src="/images/plus-icon.svg" />
+              New Post
+            </button>
+          </div>
+        </section>
         <section class="cards"></section>
       </main>
       <footer class="footer"></footer>

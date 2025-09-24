@@ -2,3 +2,22 @@
   background-color: #fcf5e5;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
+
+.content {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  background-color: #fff;
+  width: 100%;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__logo {
+  width: 94px;
+  height: 26px;
+}

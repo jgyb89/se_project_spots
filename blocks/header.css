@@ -1,0 +1,13 @@
+.header {
+  background-color: #fff;
+  width: 100%;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__logo {
+  width: 94px;
+  height: 26px;
+}

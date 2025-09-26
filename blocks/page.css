@@ -6,18 +6,13 @@
 .content {
   margin: 0 auto;
   padding: 20px;
+  max-width: 1280px;
 }
 
-.header {
-  background-color: #fff;
-  width: 100%;
-  height: 46px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header__logo {
-  width: 94px;
-  height: 26px;
+@media screen and (max-width: 880px) {
+  .content {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 880px;
+  }
 }

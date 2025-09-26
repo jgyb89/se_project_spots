@@ -1,0 +1,12 @@
+.footer {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__copyright {
+  font-size: 16px;
+  color: #212121b2;
+}

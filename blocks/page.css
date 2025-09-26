@@ -11,8 +11,6 @@
 
 @media screen and (max-width: 880px) {
   .content {
-    margin: 0 auto;
-    padding: 20px;
     max-width: 880px;
   }
 }

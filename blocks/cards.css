@@ -11,7 +11,7 @@
   border-bottom: 1px solid #21212166;
 }
 
-.card__container {
+.card {
   width: 100%;
   max-width: 413px;
   height: 100%;

@@ -13,11 +13,45 @@
     <title>Spots</title>
   </head>
   <body>
-    <div class="page">
+      <div class="page">
+        <div class="modal modal_is-opened">
+            <div class="modal__container">
+                <div class="modal__row">
+                     <h2 class="modal__title">Edit profile</h2>
+            <button class="modal__exit">&times;</button>
+            </div>
+        
+        <form class="modal__form">
+            <label class="modal__label" for="name">Name</label>
+                <input class="modal__input" type="text" name="name" placeholder="Type your name">
+                <label class="modal__label" for="description">Description</label>
+                <input class="modal__input" type="text" name="description" placeholder="Describe yourself">
+                <button class="modal__button">Save</button>
+        </form>
+        </div>
+      </div>
+        <div class="modal modal_is-opened">
+            <div class="modal__container">
+                <div class="modal__row">
+                     <h2 class="modal__title">New Post</h2>
+            <button class="modal__exit">&times;</button>
+            </div>
+        
+        <form class="modal__form">
+            <label class="modal__label" for="link">Image link</label>
+                <input class="modal__input" type="text" name="link" placeholder="Paste a link to the picture">
+                <label class="modal__label" for="caption">Description</label>
+                <input class="modal__input" type="text" name="caption" placeholder="Type your caption">
+                <button class="modal__button">Save</button>
+        </form>
+        </div>
+      </div>
       <header class="header">
         <img class="header__logo" src="/images/Logo.svg" />
-      </header>
-      <main class="content">
+    </header>
+
+    
+    <main class="content">
         <section class="profile">
           <div class="profile__user-column">
             <img
@@ -143,7 +177,9 @@
             </span>
           </div>
         </section>
-      </main>
+    </div>
+    </main>
+    
       <footer class="footer">
         <p class="footer__copyright">2025 © Spots</p>
       </footer>

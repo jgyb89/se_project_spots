@@ -13,6 +13,10 @@
   align-items: center;
 }
 
+.modal_is-opened {
+  visibility: visible;
+}
+
 .modal__container {
   width: 100%;
   max-width: 730px;

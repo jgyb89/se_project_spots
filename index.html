@@ -13,45 +13,68 @@
     <title>Spots</title>
   </head>
   <body>
-      <div class="page">
-        <div class="modal" id="edit-profile-modal">
-            <div class="modal__container">
-                <div class="modal__row">
-                     <h2 class="modal__title">Edit profile</h2>
-            <button class="modal__exit">&times;</button>
-            </div>
-        
-        <form class="modal__form">
-            <label class="modal__label" for="name">Name</label>
-                <input class="modal__input" type="text" name="name" placeholder="Type your name">
-                <label class="modal__label" for="description">Description</label>
-                <input class="modal__input" type="text" name="description" placeholder="Describe yourself">
-                <button class="modal__button">Save</button>
-        </form>
+    <div class="page">
+      <div class="modal" id="edit-profile-modal">
+        <div class="modal__container">
+          <div class="modal__row">
+            <h2 class="modal__title">Edit profile</h2>
+            <button type="button" class="modal__exit">&times;</button>
+          </div>
+
+          <form class="modal__form" id="edit-profile-form">
+            <label class="modal__label" for="name-input">Name</label>
+            <input
+              id="name-input"
+              class="modal__input"
+              type="text"
+              name="name"
+              placeholder="Type your name"
+            />
+            <label class="modal__label" for="desc-input">Description</label>
+            <input
+              id="desc-input"
+              class="modal__input"
+              type="text"
+              name="description"
+              placeholder="Describe yourself"
+            />
+            <button type="submit" class="modal__button">Save</button>
+          </form>
         </div>
       </div>
-        <div class="modal" id="new-post-modal">
-            <div class="modal__container">
-                <div class="modal__row">
-                     <h2 class="modal__title">New Post</h2>
-            <button class="modal__exit">&times;</button>
-            </div>
-        
-        <form class="modal__form">
-            <label class="modal__label" for="link">Image link</label>
-                <input class="modal__input" type="text" name="link" placeholder="Paste a link to the picture">
-                <label class="modal__label" for="caption">Description</label>
-                <input class="modal__input" type="text" name="caption" placeholder="Type your caption">
-                <button class="modal__button">Save</button>
-        </form>
+      <div class="modal" id="new-post-modal">
+        <div class="modal__container">
+          <div class="modal__row">
+            <h2 class="modal__title">New Post</h2>
+            <button type="button" class="modal__exit">&times;</button>
+          </div>
+
+          <form class="modal__form" id="new-post-form">
+            <label class="modal__label" for="link-input">Image link</label>
+            <input
+              id="link-input"
+              class="modal__input"
+              type="text"
+              name="link"
+              placeholder="Paste a link to the picture"
+            />
+            <label class="modal__label" for="caption-input">Description</label>
+            <input
+              id="caption-input"
+              class="modal__input"
+              type="text"
+              name="caption"
+              placeholder="Type your caption"
+            />
+            <button type="submit" class="modal__button">Save</button>
+          </form>
         </div>
       </div>
       <header class="header">
-        <img class="header__logo" src="/images/Logo.svg" />
-    </header>
+        <img class="header__logo" src="/images/Logo.svg" alt="Spots" />
+      </header>
 
-    
-    <main class="content">
+      <main class="content">
         <section class="profile">
           <div class="profile__user-column">
             <img
@@ -60,17 +83,18 @@
               alt="User's profile"
             />
             <div class="profile__user-container">
-              <span class="profile__user-info">
+              <div>
                 <h1 class="profile__user-name">Bessie Coleman</h1>
                 <p class="profile__user-description">Civil Aviator</p>
-              </span>
+              </div>
 
               <span class="profile__edit-profile">
                 <a
                   href="#"
                   class="profile__edit-profile profile__edit-profile_button"
                 >
-                  <img src="/images/edit-icon.svg" />Edit profile
+                  <img src="/images/edit-icon.svg" alt="Edit icon" />Edit
+                  profile
                 </a>
               </span>
             </div>
@@ -78,7 +102,7 @@
 
           <div class="profile__new-post">
             <button class="profile__new-post profile__new-post_button">
-              <img src="/images/plus-icon.svg" />
+              <img src="/images/plus-icon.svg" alt="Plus icon" />
               New Post
             </button>
           </div>
@@ -90,19 +114,20 @@
               src="/images/1-photo-by-moritz-feldmann-from-pexels.jpg"
               alt="A view looking outside a window of a snowy cabin in front of tall mountain tops."
             />
-            <span class="card__bottom-container">
+            <div class="card__bottom-container">
               <p class="card__title">Val Thorens</p>
               <img
                 class="card__favorite"
                 src="/images/heart-icon.svg"
                 alt="Heart icon"
               />
-            </span>
+            </div>
           </div>
           <div class="card">
             <img
               class="card__images"
               src="/images/2-photo-by-ceiline-from-pexels.jpg"
+              alt="A view of a cabin sitting on a snowy field all seen through a log cabin window."
             />
             <span class="card__bottom-container">
               <p class="card__title">Restaurant terrace</p>
@@ -177,9 +202,8 @@
             </span>
           </div>
         </section>
-    </div>
-    </main>
-    
+      </main>
+
       <footer class="footer">
         <p class="footer__copyright">2025 © Spots</p>
       </footer>

@@ -66,9 +66,10 @@
   gap: 8px;
   text-decoration: none;
   font-size: 16px;
+  cursor: pointer;
 }
 
-.profle__edit-profile_button:hover {
+.profile__edit-profile_button:hover {
   opacity: 1;
 }
 

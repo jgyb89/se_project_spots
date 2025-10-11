@@ -4,9 +4,7 @@
   grid-template-rows: repeat(2, 1fr);
   gap: 20px;
   padding: 30px 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+
   margin: 0 auto;
   border-bottom: 1px solid #21212166;
 }

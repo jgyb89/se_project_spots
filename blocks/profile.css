@@ -96,7 +96,7 @@
   opacity: 0.8;
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 880px) {
   .profile {
     justify-content: center;
     flex-direction: column;

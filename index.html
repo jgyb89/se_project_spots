@@ -18,7 +18,9 @@
         <div class="modal__container">
           <div class="modal__row">
             <h2 class="modal__title">Edit profile</h2>
-            <button type="button" class="modal__exit">&times;</button>
+            <button aria-label="Close modal" type="button" class="modal__exit">
+              &times;
+            </button>
           </div>
 
           <form class="modal__form" id="edit-profile-form">
@@ -29,6 +31,7 @@
               type="text"
               name="name"
               placeholder="Type your name"
+              required
             />
             <label class="modal__label" for="desc-input">Description</label>
             <input
@@ -38,15 +41,38 @@
               name="description"
               placeholder="Describe yourself"
             />
-            <button type="submit" class="modal__button">Save</button>
+            <button
+              aria-label="Save profile"
+              type="submit"
+              class="modal__button"
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
+
+      <div class="modal" id="preview-modal">
+        <div class="modal__image-container">
+          <button
+            aria-label="Close modal"
+            type="button"
+            class="modal__exit modal__exit_type_preview"
+          >
+            &times;
+          </button>
+          <img class="modal__image" src="#" alt="" />
+          <p class="modal__caption"></p>
+        </div>
+      </div>
+
       <div class="modal" id="new-post-modal">
         <div class="modal__container">
           <div class="modal__row">
             <h2 class="modal__title">New Post</h2>
-            <button type="button" class="modal__exit">&times;</button>
+            <button aria-label="Close modal" type="button" class="modal__exit">
+              &times;
+            </button>
           </div>
 
           <form class="modal__form" id="new-post-form">
@@ -57,6 +83,7 @@
               type="text"
               name="link"
               placeholder="Paste a link to the picture"
+              required
             />
             <label class="modal__label" for="caption-input">Description</label>
             <input
@@ -66,7 +93,13 @@
               name="caption"
               placeholder="Type your caption"
             />
-            <button type="submit" class="modal__button">Save</button>
+            <button
+              aria-label="Save new post"
+              type="submit"
+              class="modal__button"
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
@@ -89,118 +122,47 @@
               </div>
 
               <div class="profile__edit-profile">
-                <a
-                  href="#"
+                <button
+                  aria-label="Edit Profile"
+                  type="button"
                   class="profile__edit-profile profile__edit-profile_button"
                 >
-                  <img src="/images/edit-icon.svg" alt="Edit icon" />Edit
-                  profile
-                </a>
+                  <img src="/images/edit-icon.svg" alt="Edit icon" />
+                  Edit profile
+                </button>
               </div>
             </div>
           </div>
 
           <div class="profile__new-post">
-            <button class="profile__new-post profile__new-post_button">
+            <button
+              aria-label="New post"
+              class="profile__new-post profile__new-post_button"
+            >
               <img src="/images/plus-icon.svg" alt="Plus icon" />
               New Post
             </button>
           </div>
         </section>
         <section class="cards">
-          <div class="card">
-            <img
-              class="card__images"
-              src="/images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-              alt="A view looking outside a window of a snowy cabin in front of tall mountain tops."
-            />
-            <div class="card__bottom-container">
-              <p class="card__title">Val Thorens</p>
-              <img
-                class="card__favorite"
-                src="/images/heart-icon.svg"
-                alt="Heart icon"
-              />
-            </div>
-          </div>
-          <div class="card">
-            <img
-              class="card__images"
-              src="/images/2-photo-by-ceiline-from-pexels.jpg"
-              alt="A view of a cabin sitting on a snowy field all seen through a log cabin window."
-            />
-            <div class="card__bottom-container">
-              <p class="card__title">Restaurant terrace</p>
-              <img
-                class="card__favorite"
-                src="/images/heart-icon.svg"
-                alt="A view of a restaurant terrance on a street corner with tables and chairs."
-              />
-            </div>
-          </div>
-          <div class="card">
-            <img
-              class="card__images"
-              src="/images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-              alt="A group of people dining outside a cafe."
-            />
-            <div class="card__bottom-container">
-              <p class="card__title">An outdoor cafe</p>
-              <img
-                class="card__favorite"
-                src="/images/heart-icon.svg"
-                alt="Heart icon"
-              />
-            </div>
-          </div>
-          <div class="card">
-            <img
-              class="card__images"
-              src="/images/4-photo-by-maurice-laschet-from-pexels.jpg"
-              alt="A very long bridge held by wires over a large forest."
-            />
-
-            <div class="card__bottom-container">
-              <p class="card__title">A very long bridge, over the forest...</p>
-              <img
-                class="card__favorite"
-                src="/images/heart-icon.svg"
-                alt="Heart icon"
-              />
-            </div>
-          </div>
-          <div class="card">
-            <img
-              class="card__images"
-              src="/images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-              alt="A long tunnel with many windows showing the morning light shining in."
-            />
-
-            <div class="card__bottom-container">
-              <p class="card__title">Tunnel with morning light</p>
-              <img
-                class="card__favorite"
-                src="/images/heart-icon.svg"
-                alt="Heart icon"
-              />
-            </div>
-          </div>
-          <div class="card">
-            <img
-              class="card__images"
-              src="/images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-              alt="A log mountain house sitting in a snowy forest."
-            />
-
-            <div class="card__bottom-container">
-              <p class="card__title">Mountain house</p>
-              <img
-                class="card__favorite"
-                src="/images/heart-icon.svg"
-                alt="Heart icon"
-              />
-            </div>
-          </div>
+          <ul class="cards__list"></ul>
+          <template id="card__template">
+            <li class="card">
+              <button
+                aria-label="Delete"
+                class="card__delete"
+                alt="Delete Icon"
+              ></button>
+              <img class="card__image" src="#" alt="" />
+              <div class="card__bottom-container">
+                <h2 class="card__title"></h2>
+                <button
+                  aria-label="Favorite card"
+                  class="card__favorite"
+                ></button>
+              </div>
+            </li>
+          </template>
         </section>
       </main>
 

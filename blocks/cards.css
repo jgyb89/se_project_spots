@@ -1,7 +1,4 @@
 .cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
   padding: 30px 0;
   margin: 0 auto;
   border-bottom: 1px solid #21212166;
@@ -10,9 +7,19 @@
   box-sizing: border-box;
 }
 
+.cards__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 .card {
+  position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,13 +29,15 @@
   box-sizing: border-box;
 }
 
-.card__images {
+.card__image {
+  position: relative;
   width: 100%;
   height: auto;
   max-height: 413px;
   border-radius: 16px;
   object-fit: cover;
   display: block;
+  cursor: pointer;
 }
 
 .card__bottom-container {
@@ -50,20 +59,55 @@
 }
 
 .card__favorite {
+  background-image: url(../images/heart-icon.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: transparent;
   flex: 0 0 23px;
   width: 23px;
   height: 20px;
   opacity: 0.4;
   cursor: pointer;
+  border: none;
 }
 
 .card__favorite:hover {
   opacity: 1;
 }
 
+.card__favorite_active {
+  background-image: url(../images/heart-icon-active.svg);
+  opacity: 1;
+}
+
+.card__favorite_active:hover {
+  opacity: 0.4;
+}
+
+.card__delete {
+  position: absolute;
+  background-image: url(../images/delete-icon.svg);
+  padding: 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  border: none;
+}
+
+.card__delete:hover {
+  background-image: url(../images/delete-hover.svg);
+}
+
 /* Tablet layout */
 @media screen and (max-width: 1320px) {
-  .cards {
+  .cards__list {
     grid-template-columns: repeat(2, 1fr);
     max-width: 880px;
   }
@@ -71,7 +115,7 @@
 
 /* Mobile layout */
 @media screen and (max-width: 880px) {
-  .cards {
+  .cards__list {
     grid-template-columns: 1fr;
     max-width: 100%;
     padding: 20px 0;
@@ -82,7 +126,7 @@
     margin: 0 auto;
   }
 
-  .card__images {
+  .card__image {
     width: 288px;
     height: 288px;
   }

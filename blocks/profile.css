@@ -54,12 +54,12 @@
   -webkit-box-orient: vertical;
 }
 
-.profile__edit-profile {
+.profile__actions {
   display: flex;
   align-items: flex-end;
 }
 
-.profile__edit-profile_button {
+.profile__edit-button {
   display: flex;
   gap: 8px;
   align-items: center;
@@ -72,7 +72,7 @@
   border: none;
 }
 
-.profile__edit-profile_button:hover {
+.profile__edit-button:hover {
   opacity: 1;
 }
 
@@ -82,7 +82,7 @@
   gap: 5px;
 }
 
-.profile__new-post_button {
+.profile__post_button {
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -97,7 +97,7 @@
   cursor: pointer;
 }
 
-.profile__new-post_button:hover {
+.profile__post_button:hover {
   opacity: 0.8;
 }
 
@@ -128,12 +128,12 @@
     font-size: 24px;
   }
 
-  .profile__edit-profile {
+  .profile__actions {
     justify-content: center;
     margin: 20px 0 10px;
   }
 
-  .profile__edit-profile_button {
+  .profile__edit-button {
     justify-content: center;
     text-align: center;
     width: 100%;

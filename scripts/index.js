@@ -42,7 +42,7 @@ const profileDesc = document.querySelector(".profile__user-description");
 
 // -------- New post elements --------
 const newPostModal = document.querySelector("#new-post-modal");
-const newPostBtn = document.querySelector(".profile__post_button");
+const newPostBtn = document.querySelector(".profile__new-post_button");
 const newPostLinkInput = newPostModal.querySelector("#link-input");
 const newPostCaptionInput = newPostModal.querySelector("#caption-input");
 const newPostForm = newPostModal.querySelector("#new-post-form");

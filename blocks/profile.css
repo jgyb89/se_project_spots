@@ -82,7 +82,7 @@
   gap: 5px;
 }
 
-.profile__post_button {
+.profile__new-post_button {
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -97,7 +97,7 @@
   cursor: pointer;
 }
 
-.profile__post_button:hover {
+.profile__new-post_button:hover {
   opacity: 0.8;
 }
 

@@ -25,24 +25,35 @@
             ></button>
           </div>
 
-          <form class="modal__form" id="edit-profile-form">
-            <label class="modal__label" for="name-input">Name</label>
-            <input
-              id="name-input"
-              class="modal__input"
-              type="text"
-              name="name"
-              placeholder="Type your name"
-              required
-            />
-            <label class="modal__label" for="desc-input">Description</label>
-            <input
-              id="desc-input"
-              class="modal__input"
-              type="text"
-              name="description"
-              placeholder="Describe yourself"
-            />
+          <form class="modal__form" id="edit-profile-form" novalidate>
+            <label class="modal__label" for="name-input"
+              >Name
+              <input
+                id="name-input"
+                class="modal__input"
+                type="text"
+                name="name"
+                placeholder="Type your name"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span id="name-input-error" class="modal__error"></span>
+            </label>
+            <label class="modal__label" for="desc-input"
+              >Description
+              <input
+                id="desc-input"
+                class="modal__input"
+                type="text"
+                name="description"
+                placeholder="Describe yourself"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <span id="desc-input-error" class="modal__error"></span>
+            </label>
             <button
               aria-label="Save profile"
               type="submit"
@@ -77,24 +88,33 @@
             ></button>
           </div>
 
-          <form class="modal__form" id="new-post-form">
-            <label class="modal__label" for="link-input">Image link</label>
-            <input
-              id="link-input"
-              class="modal__input"
-              type="text"
-              name="link"
-              placeholder="Paste a link to the picture"
-              required
-            />
-            <label class="modal__label" for="caption-input">Description</label>
-            <input
-              id="caption-input"
-              class="modal__input"
-              type="text"
-              name="caption"
-              placeholder="Type your caption"
-            />
+          <form class="modal__form" id="new-post-form" novalidate>
+            <label class="modal__label" for="link-input"
+              >Image link
+              <input
+                id="link-input"
+                class="modal__input"
+                type="url"
+                name="link"
+                placeholder="Paste a link to the picture"
+                required
+              />
+              <span id="link-input-error" class="modal__error"></span>
+            </label>
+            <label class="modal__label" for="caption-input"
+              >Description
+              <input
+                id="caption-input"
+                class="modal__input"
+                type="text"
+                name="caption"
+                placeholder="Type your caption"
+                minlength="2"
+                maxlength="30"
+                required
+              />
+              <span id="caption-input-error" class="modal__error"></span>
+            </label>
             <button
               aria-label="Save new post"
               type="submit"
@@ -173,5 +193,6 @@
       </footer>
     </div>
     <script src="scripts/index.js"></script>
+    <script src="scripts/validations.js"></script>
   </body>
 </html>

@@ -81,7 +81,7 @@ document.querySelectorAll(".modal").forEach((modal) => {
   });
 });
 
-// -------- Card factory --------
+// -------- Card listings --------
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");

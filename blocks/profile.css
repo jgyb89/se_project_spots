@@ -76,7 +76,7 @@
   opacity: 1;
 }
 
-.profile__new-post {
+.profile__new-post-container {
   display: flex;
   align-items: flex-end;
   gap: 5px;

@@ -126,7 +126,7 @@
         </div>
       </div>
       <header class="header">
-        <img class="header__logo" src="/images/Logo.svg" alt="Spots" />
+        <img class="header__logo" src="./images/Logo.svg" alt="Spots" />
       </header>
 
       <main class="content">
@@ -134,7 +134,7 @@
           <div class="profile__user-column">
             <img
               class="profile__user-image"
-              src="/images/avatar.jpg"
+              src="./images/avatar.jpg"
               alt="User's profile"
             />
             <div class="profile__user-container">
@@ -149,19 +149,19 @@
                   type="button"
                   class="profile__edit-button"
                 >
-                  <img src="/images/edit-icon.svg" alt="Edit icon" />
+                  <img src="./images/edit-icon.svg" alt="Edit icon" />
                   Edit profile
                 </button>
               </div>
             </div>
           </div>
 
-          <div class="profile__new-post">
+          <div class="profile__new-post-container">
             <button
               aria-label="New post"
               class="profile__new-post profile__new-post_button"
             >
-              <img src="/images/plus-icon.svg" alt="Plus icon" />
+              <img src="./images/plus-icon.svg" alt="Plus icon" />
               New Post
             </button>
           </div>
@@ -170,11 +170,7 @@
           <ul class="cards__list"></ul>
           <template id="card__template">
             <li class="card">
-              <button
-                aria-label="Delete"
-                class="card__delete"
-                alt="Delete Icon"
-              ></button>
+              <button aria-label="Delete" class="card__delete"></button>
               <img class="card__image" src="#" alt="" />
               <div class="card__bottom-container">
                 <h2 class="card__title"></h2>

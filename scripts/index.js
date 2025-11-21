@@ -48,7 +48,7 @@ const newPostCaptionInput = newPostModal.querySelector("#caption-input");
 const newPostForm = newPostModal.querySelector("#new-post-form");
 const cardSubmitButton = newPostModal.querySelector(".modal__button");
 
-// -------- Preview eleme nts --------
+// -------- Preview elements --------
 const previewModal = document.querySelector("#preview-modal");
 const previewImage = previewModal.querySelector(".modal__image");
 const previewCaption = previewModal.querySelector(".modal__caption");
@@ -119,8 +119,13 @@ function getCardElement(data) {
 // method can be "prepend", "append", etc. Defaults to "prepend".
 function renderCard(item, method = "prepend") {
   const cardElement = getCardElement(item);
-  cardsList[method](cardElement);
-  disableButton(cardSubmitButton);
+
+  if (typeof cardsList[method] === "function") {
+    cardsList[method](cardElement);
+  } else {
+    // Fallback
+    cardsList.appendChild(cardElement);
+  }
 }
 
 // -------- Event wiring --------
@@ -131,8 +136,7 @@ newPostBtn.addEventListener("click", () => openModal(newPostModal));
 editProfileBtn.addEventListener("click", () => {
   editProfileNameInput.value = profileName.textContent;
   editProfileDescInput.value = profileDesc.textContent;
-
-  restetValidation(editProfileForm, [
+  resetValidation(editProfileForm, [
     editProfileNameInput,
     editProfileDescInput,
   ]);

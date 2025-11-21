@@ -175,7 +175,7 @@
   width: fit-content;
 }
 
-.modal__button-disabled {
+.modal__button_disabled {
   opacity: 0.5;
 }
 

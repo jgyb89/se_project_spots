@@ -60,16 +60,31 @@ const cardTemplate = document
 const cardsList = document.querySelector(".cards__list");
 
 // -------- Modal helpers --------
+
+// Named function for Escape key handler
+function closeByEscape(evt) {
+  if (evt.key === "Escape") {
+    // Find the currently open modal
+    const openedModal = document.querySelector(".modal_is-opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  // Add Escape key listener when modal opens
+  document.addEventListener("keydown", closeByEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  // Remove Escape key listener when modal closes
+  document.removeEventListener("keydown", closeByEscape);
 }
 
 // Universal close button handler
-// Supports either `.modal__close` (suggested) or existing `.modal__exit` class.
 document.querySelectorAll(".modal__close, .modal__exit").forEach((button) => {
   const modal = button.closest(".modal");
   button.addEventListener("click", () => closeModal(modal));
@@ -116,7 +131,6 @@ function getCardElement(data) {
 }
 
 // -------- Reusable render function --------
-// method can be "prepend", "append", etc. Defaults to "prepend".
 function renderCard(item, method = "prepend") {
   const cardElement = getCardElement(item);
 
@@ -136,10 +150,15 @@ newPostBtn.addEventListener("click", () => openModal(newPostModal));
 editProfileBtn.addEventListener("click", () => {
   editProfileNameInput.value = profileName.textContent;
   editProfileDescInput.value = profileDesc.textContent;
-  resetValidation(editProfileForm, [
-    editProfileNameInput,
-    editProfileDescInput,
-  ]);
+
+  // Reset Edit form validation state and remove error messages on open.
+  // We use the global 'settings' object defined in validations.js
+  resetValidation(
+    editProfileForm,
+    [editProfileNameInput, editProfileDescInput],
+    settings
+  );
+
   openModal(editProfileModal);
 });
 
@@ -159,7 +178,20 @@ newPostForm.addEventListener("submit", (evt) => {
     name: newPostCaptionInput.value.trim(),
   };
   renderCard(item, "prepend");
+
+  // 1. Reset form fields (resets link and caption inputs)
   newPostForm.reset();
+
+  // 2. Reset validation state and disable button
+  const inputList = [newPostLinkInput, newPostCaptionInput];
+  const submitButton = newPostModal.querySelector(
+    settings.submitButtonSelector
+  );
+
+  // Clear errors and explicitly disable the button
+  resetValidation(newPostForm, inputList, settings);
+  disableButton(submitButton, settings);
+
   closeModal(newPostModal);
 });
 

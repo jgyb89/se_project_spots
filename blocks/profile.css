@@ -10,7 +10,7 @@
   max-width: 190px;
   height: 190px;
   margin: 0 auto;
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 .profile__user-column {
@@ -27,7 +27,8 @@
 }
 
 .profile__user-name {
-  font-family: Poppins;
+  line-height: 1;
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 32px;
   padding: 0;
@@ -40,7 +41,7 @@
 }
 
 .profile__user-description {
-  font-family: Poppins;
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
   color: #212121;
@@ -61,6 +62,7 @@
 
 .profile__edit-button {
   display: flex;
+  padding: 0;
   gap: 8px;
   align-items: center;
   color: #212121;
@@ -70,6 +72,13 @@
   cursor: pointer;
   background-color: transparent;
   border: none;
+}
+
+.profile__edit-button::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/edit-icon.svg);
 }
 
 .profile__edit-button:hover {

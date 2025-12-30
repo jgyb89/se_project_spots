@@ -1,3 +1,10 @@
+import {
+  enableValidation,
+  resetValidation,
+  disableButton,
+  settings,
+} from "./validations.js";
+
 // -------- Card data --------
 const initialCards = [
   {
@@ -197,3 +204,5 @@ newPostForm.addEventListener("submit", (evt) => {
 
 // -------- Initial render --------
 initialCards.forEach((item) => renderCard(item, "append"));
+
+enableValidation(settings);

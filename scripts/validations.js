@@ -1,5 +1,5 @@
 // -------- Configuration Settings --------
-const settings = {
+export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
@@ -23,7 +23,7 @@ const hideInputError = (formEl, inputEl, config) => {
 };
 
 // Defined as a global function so it can be used in index.js
-function disableButton(buttonEl, config) {
+export function disableButton(buttonEl, config) {
   buttonEl.disabled = true;
   buttonEl.classList.add(config.inactiveButtonClass);
 }
@@ -54,7 +54,7 @@ const toggleButtonState = (inputList, buttonEl, config) => {
 };
 
 // Defined as a global function so it can be used in index.js
-function resetValidation(formEl, inputList, config) {
+export function resetValidation(formEl, inputList, config) {
   inputList.forEach((input) => {
     hideInputError(formEl, input, config);
   });
@@ -79,7 +79,7 @@ const setEventListeners = (formEl, config) => {
   });
 };
 
-const enableValidation = (config) => {
+export const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((formEl) => {
     setEventListeners(formEl, config);

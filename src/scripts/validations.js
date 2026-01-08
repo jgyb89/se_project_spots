@@ -85,6 +85,3 @@ export const enableValidation = (config) => {
     setEventListeners(formEl, config);
   });
 };
-
-// Initialize validation
-enableValidation(settings);

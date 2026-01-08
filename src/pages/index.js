@@ -3,37 +3,62 @@ import {
   resetValidation,
   disableButton,
   settings,
-} from "./validations.js";
+} from "../scripts/validations.js";
 
-// -------- Card data --------
+import "./index.css";
+
+// At the top of index.js
+const goldenGateImage = new URL(
+  "../images/golden-gate-bridge.jpg",
+  import.meta.url
+);
+const cabinWindow = new URL(
+  "../images/snowy-cabin-window-view.jpg",
+  import.meta.url
+);
+const restaurantTerrace = new URL(
+  "../images/restaurant-terrace.jpg",
+  import.meta.url
+);
+const outdoorCafe = new URL("../images/an-outdoor-cafe.jpg", import.meta.url);
+const longBridge = new URL("../images/very-long-bridge.jpg", import.meta.url);
+const tunnelWithLight = new URL(
+  "../images/tunnel-with-morning-light.jpg",
+  import.meta.url
+);
+const mountainHouse = new URL(
+  "../images/snowy-mountain-house.jpg",
+  import.meta.url
+);
+
 const initialCards = [
   {
     name: "Golden Gate Bridge",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+    link: goldenGateImage, // Webpack will now resolve this path
   },
   {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+    name: "Snowy Cabin Window",
+    link: cabinWindow,
   },
   {
     name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+    link: restaurantTerrace,
   },
   {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
+    name: "An Outddor Cafe",
+    link: outdoorCafe,
   },
   {
     name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+    link: longBridge,
   },
   {
     name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+    link: tunnelWithLight,
   },
   {
     name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+    link: mountainHouse,
   },
 ];
 

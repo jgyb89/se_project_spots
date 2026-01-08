@@ -8,8 +8,6 @@
       name="description"
       content="Spots coffee shop with classic blends, located within triple peaks library. Match the perfect cup with the perfect book."
     />
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <title>Spots</title>
   </head>
   <body>
@@ -126,7 +124,11 @@
         </div>
       </div>
       <header class="header">
-        <img class="header__logo" src="./images/Logo.svg" alt="Spots" />
+        <img
+          class="header__logo"
+          src="<%=require('./images/Logo.svg')%>"
+          alt="Spots"
+        />
       </header>
 
       <main class="content">
@@ -134,12 +136,12 @@
           <div class="profile__user-column">
             <img
               class="profile__user-image"
-              src="./images/avatar.jpg"
+              src="<%=require('./images/avatar.jpg')%>"
               alt="User's profile"
             />
             <div class="profile__user-container">
               <div>
-                <h1 class="profile__user-name">Bessie Coleman</h1>
+                <h1 class="profile__user-name">James Green</h1>
                 <p class="profile__user-description">Civil Aviator</p>
               </div>
 
@@ -160,7 +162,10 @@
               aria-label="New post"
               class="profile__new-post profile__new-post_button"
             >
-              <img src="./images/plus-icon.svg" alt="Plus icon" />
+              <img
+                src="<%=require('./images/plus-icon.svg')%>"
+                alt="Plus icon"
+              />
               New Post
             </button>
           </div>
@@ -187,6 +192,5 @@
         <p class="footer__copyright">2025 © Spots</p>
       </footer>
     </div>
-    <script type="module" src="scripts/index.js"></script>
   </body>
 </html>

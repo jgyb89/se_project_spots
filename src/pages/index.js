@@ -5,62 +5,91 @@ import {
   settings,
 } from "../scripts/validations.js";
 
+import Api from "../utils/Api.js";
+
 import "./index.css";
 
 // At the top of index.js
-const goldenGateImage = new URL(
-  "../images/golden-gate-bridge.jpg",
-  import.meta.url
-);
-const cabinWindow = new URL(
-  "../images/snowy-cabin-window-view.jpg",
-  import.meta.url
-);
-const restaurantTerrace = new URL(
-  "../images/restaurant-terrace.jpg",
-  import.meta.url
-);
-const outdoorCafe = new URL("../images/an-outdoor-cafe.jpg", import.meta.url);
-const longBridge = new URL("../images/very-long-bridge.jpg", import.meta.url);
-const tunnelWithLight = new URL(
-  "../images/tunnel-with-morning-light.jpg",
-  import.meta.url
-);
-const mountainHouse = new URL(
-  "../images/snowy-mountain-house.jpg",
-  import.meta.url
-);
+// const goldenGateImage = new URL(
+//   "../images/golden-gate-bridge.jpg",
+//   import.meta.url
+// );
+// const cabinWindow = new URL(
+//   "../images/snowy-cabin-window-view.jpg",
+//   import.meta.url
+// );
+// const restaurantTerrace = new URL(
+//   "../images/restaurant-terrace.jpg",
+//   import.meta.url
+// );
+// const outdoorCafe = new URL("../images/an-outdoor-cafe.jpg", import.meta.url);
+// const longBridge = new URL("../images/very-long-bridge.jpg", import.meta.url);
+// const tunnelWithLight = new URL(
+//   "../images/tunnel-with-morning-light.jpg",
+//   import.meta.url
+// );
+// const mountainHouse = new URL(
+//   "../images/snowy-mountain-house.jpg",
+//   import.meta.url
+// );
 
-const initialCards = [
-  {
-    name: "Golden Gate Bridge",
-    link: goldenGateImage, // Webpack will now resolve this path
+// const initialCards = [
+//   {
+//     name: "Golden Gate Bridge",
+//     link: goldenGateImage, // Webpack will now resolve this path
+//   },
+//   {
+//     name: "Snowy Cabin Window",
+//     link: cabinWindow,
+//   },
+//   {
+//     name: "Restaurant terrace",
+//     link: restaurantTerrace,
+//   },
+//   {
+//     name: "An Outddor Cafe",
+//     link: outdoorCafe,
+//   },
+//   {
+//     name: "A very long bridge, over the forest and through the trees",
+//     link: longBridge,
+//   },
+//   {
+//     name: "Tunnel with morning light",
+//     link: tunnelWithLight,
+//   },
+//   {
+//     name: "Mountain house",
+//     link: mountainHouse,
+//   },
+// ];
+
+fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+  method: "GET",
+  headers: {
+    authorization: "594ccbee-3c58-44c3-9687-ba64e26ab126",
+    "Content-Type": "application/json",
   },
-  {
-    name: "Snowy Cabin Window",
-    link: cabinWindow,
+});
+
+// -------- API Instantiation --------
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "594ccbee-3c58-44c3-9687-ba64e26ab126",
+    "Content-Type": "application/json",
   },
-  {
-    name: "Restaurant terrace",
-    link: restaurantTerrace,
-  },
-  {
-    name: "An Outddor Cafe",
-    link: outdoorCafe,
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: longBridge,
-  },
-  {
-    name: "Tunnel with morning light",
-    link: tunnelWithLight,
-  },
-  {
-    name: "Mountain house",
-    link: mountainHouse,
-  },
-];
+});
+
+api
+  .getAppInfo()
+  .then(([cards]) => {
+    // Reused initial render forEach method
+    cards.forEach((item) => renderCard(item, "append"));
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 // -------- Profile elements --------
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -226,8 +255,5 @@ newPostForm.addEventListener("submit", (evt) => {
 
   closeModal(newPostModal);
 });
-
-// -------- Initial render --------
-initialCards.forEach((item) => renderCard(item, "append"));
 
 enableValidation(settings);

@@ -4,39 +4,27 @@ class Api {
     this._headers = headers;
   }
 
-  getAppInfo() {
-    return Promise.all([this.getInitialCards()]);
+  // Helper to check the server response
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
   }
 
-  // Global generate card
-  getInitialCards() {
-    // Interpolate a variable into a string
-    return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+  getAppInfo() {
+    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
 
   // -------- USER ROUTES --------
 
-  // Loading user info from server
-  addProfileData({ name, about, avatar }) {
+  getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers,
-      body: JSON.stringify({
-        name,
-        about,
-        avatar,
-      }),
-    }).then(this._handleServerResponse);
+    }).then(this._checkResponse);
   }
 
-  // Update the profile info
   editUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
@@ -45,40 +33,60 @@ class Api {
         name,
         about,
       }),
-    }).then(this._handleServerResponse);
+    }).then(this._checkResponse);
+  }
+
+  // Updating the profile picture
+  updateAvatar(avatar) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar,
+      }),
+    }).then(this._checkResponse);
   }
 
   // -------- CARD ROUTES --------
 
-  getCardData({ createdAt, isLiked, link, name, owner, _id }) {
+  getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
-      method: "GET",
-      headers: this_headers,
-      body: JSON.stringify({
-        createdAt,
-        isLiked,
-        link,
-        name,
-        owner,
-        _id,
-      }),
-    });
+      headers: this._headers,
+    }).then(this._checkResponse);
   }
 
-  // Adding a new card
-  addNewCards({ isLiked, _id, name, link, owner, createdAt }) {
+  addNewCards({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: this_headers,
+      headers: this._headers,
       body: JSON.stringify({
-        isLiked,
-        _id,
         name,
         link,
-        owner,
-        createdAt,
       }),
-    });
+    }).then(this._checkResponse);
+  }
+
+  // Deleting a card
+  deleteCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  // Adding and removing likes
+  addLike(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "PUT",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  removeLike(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);
   }
 }
 

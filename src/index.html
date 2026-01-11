@@ -63,6 +63,75 @@
         </div>
       </div>
 
+      <div class="modal" id="edit-avatar-modal">
+        <div class="modal__container">
+          <div class="modal__row">
+            <h2 class="modal__title">Edit profile avatar</h2>
+            <button
+              aria-label="Close modal"
+              type="button"
+              class="modal__exit"
+            ></button>
+          </div>
+
+          <form class="modal__form" id="edit-avatar-form" novalidate>
+            <label class="modal__label" for="avatar-link-input"
+              >Profile Picture
+              <input
+                id="avatar-link-input"
+                class="modal__input"
+                type="url"
+                name="profile picture"
+                placeholder="Paste a link to the picture"
+                required
+              />
+              <span id="avatar-link-input-error" class="modal__error"></span>
+            </label>
+            <button
+              aria-label="Save avatar"
+              type="submit"
+              class="modal__button"
+            >
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal" id="delete-modal">
+        <div class="modal__container modal__container_type_delete">
+          <div class="modal__row">
+            <h2 class="modal__title modal__title_type_delete">
+              Are you sure you want to delete this image?
+            </h2>
+            <button
+              aria-label="Close modal"
+              type="button"
+              class="modal__exit modal__exit_type_outside"
+            ></button>
+          </div>
+          <form class="modal__form" id="delete-form" novalidate>
+            <div class="modal__form-actions modal__form-actions_type_delete">
+              <button
+                aria-label="Delete card"
+                type="submit"
+                class="modal__button modal__button_type_delete"
+              >
+                Delete
+              </button>
+
+              <button
+                aria-label="Cancel deletion"
+                type="button"
+                class="modal__button modal__button_type_cancel"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
       <div class="modal" id="preview-modal">
         <div class="modal__image-container">
           <button
@@ -123,6 +192,7 @@
           </form>
         </div>
       </div>
+
       <header class="header">
         <img
           class="header__logo"
@@ -134,11 +204,18 @@
       <main class="content">
         <section class="profile">
           <div class="profile__user-column">
-            <img
-              class="profile__user-image"
-              src="<%=require('./images/avatar.jpg')%>"
-              alt="User's profile"
-            />
+            <div class="profile__avatar-container">
+              <img
+                class="profile__user-image"
+                src="<%=require('./images/avatar.jpg')%>"
+                alt="User's profile"
+              />
+              <button
+                class="profile__avatar-edit"
+                type="button"
+                aria-label="Edit avatar"
+              ></button>
+            </div>
             <div class="profile__user-container">
               <div>
                 <h1 class="profile__user-name">James Green</h1>

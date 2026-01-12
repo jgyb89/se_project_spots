@@ -1,7 +1,6 @@
 import {
   enableValidation,
   resetValidation,
-  disableButton,
   settings,
 } from "../scripts/validations.js";
 
@@ -226,7 +225,7 @@ profileAvatarBtn.addEventListener("click", () => {
 editProfileForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const submitButton = editProfileForm.querySelector(".modal__button");
-  renderLoading(true, submitButton); //
+  renderLoading(true, submitButton);
 
   api
     .editUserInfo({

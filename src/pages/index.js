@@ -59,7 +59,7 @@ const cardTemplate = document
 const cardsList = document.querySelector(".cards__list");
 
 // -------- State for deletion --------
-let cardToDelete = null; // Stores { element, id } [cite: 185]
+let cardToDelete = null;
 
 // -------- Initial Load --------
 api
@@ -141,7 +141,7 @@ function getCardElement(data) {
     likeButton.classList.add("card__favorite_active");
   }
 
-  // Like handler [cite: 218]
+  // Like handler
   likeButton.addEventListener("click", () => {
     // Check if currently liked to decide API method
     const isLiked = likeButton.classList.contains("card__favorite_active");
@@ -163,7 +163,7 @@ function getCardElement(data) {
     }
   });
 
-  // Delete handler [cite: 195, 202]
+  // Delete handler
   deleteButton.addEventListener("click", () => {
     // Store the card details for the confirmation modal
     cardToDelete = { element: cardElement, id: data._id };
@@ -244,7 +244,7 @@ editProfileForm.addEventListener("submit", (evt) => {
     });
 });
 
-// Submit: Edit Avatar [cite: 228]
+// Submit: Edit Avatar
 editAvatarForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const submitButton = editAvatarForm.querySelector(".modal__button");
@@ -301,7 +301,7 @@ deleteForm.addEventListener("submit", (evt) => {
   api
     .deleteCard(cardToDelete.id)
     .then(() => {
-      cardToDelete.element.remove(); // [cite: 214]
+      cardToDelete.element.remove();
       closeModal(deleteModal);
       cardToDelete = null;
     })

@@ -30,6 +30,9 @@ https://drive.google.com/file/d/1XFgbC_xtXYIXCfVR3GdoxDSteotUFY9M/view?usp=shari
 JavaScript Form Validation: 
 https://drive.google.com/file/d/1WJfSAn7edVvojDk1gyIATP7vJfIWnM3o/view?usp=sharing
 
+API Request and Dynamic Rendering:
+https://drive.google.com/file/d/1PcbNOzXmY2OwcS936KDmTYPCDzLZcBkT/view?usp=drive_link
+
 **Live Site**
 
 https://jgyb89.github.io/se_project_spots/

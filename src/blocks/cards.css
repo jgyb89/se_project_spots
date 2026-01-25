@@ -14,21 +14,23 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  width: 100%;
 }
 
-/* Tablet layout */
+/* Tablet layout (Fixing the gap) */
 @media screen and (max-width: 1320px) {
   .cards__list {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 880px;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
 }
 
-/* Mobilegi layout */
+/* Mobile layout */
 @media screen and (max-width: 880px) {
   .cards__list {
     grid-template-columns: 1fr;
-    max-width: 100%;
-    padding: 20px 0;
+    padding: 20px;
   }
 }
